@@ -1,8 +1,6 @@
 import poloniex
 from lib import config
 from lib import util
-import datetime
-import time
 
 START = util.str_to_unix_ts(config.START)
 
@@ -20,7 +18,7 @@ def get_nonzero_balance(balance):
 
     return balance_nonzero
 
-def get_trade_history(start)
+def get_trade_history(start):
 ### Get entire polo trade history
     trades = polo.returnTradeHistory(start=START)
 
