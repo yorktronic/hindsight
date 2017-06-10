@@ -7,7 +7,6 @@ START = util.str_to_unix_ts(config.START)
 polo = poloniex.Poloniex(config.POLONIEX['key'], config.POLONIEX['secret'])
 balance = polo.returnBalances()
 
-# Get non-zero balances
 def get_nonzero_balance(balance):
 ### returns only balances with nonzero values
     balance_nonzero = {}
@@ -32,8 +31,7 @@ def get_trade_history(start):
     return trades, total_trade_count(trades)
 
     def get_total_transaction_fees(trades):
-        
-
+        return None
 
 # Average trade profitability
 # Most profitable pair
