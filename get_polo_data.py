@@ -31,6 +31,10 @@ def get_trade_history(start):
 
     return trades, total_trade_count(trades)
 
+    def get_total_transaction_fees(trades):
+        
+
+
 # Average trade profitability
 # Most profitable pair
 
