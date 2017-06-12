@@ -21,6 +21,12 @@ def data_file_writer(trades):
     json.dump(trades, f)
     f.close()
     print('Data written to ' + filename)
+    
+def data_file_reader(filename):
+### reads trade data from file
+    json_data = {}
 
-def data_file_reader(trades):
-### reads JSON trade data from file
+    with open(filename) as data_file:    
+        json_data = json.load(data_file)
+
+    return json_data

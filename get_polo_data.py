@@ -3,8 +3,9 @@ from lib import config
 from lib import util
 
 START = util.str_to_unix_ts(config.START)
+TRADES = 'data/poloniex-2017-06-12.json'
 polo = poloniex.Poloniex(config.POLONIEX['key'], config.POLONIEX['secret'])
-balance = polo.returnBalances()
+# balance = polo.returnBalances()
 
 def get_nonzero_balance(balance):
 ### returns only balances with nonzero values
@@ -24,6 +25,10 @@ def get_trade_history(start):
 def save_trade_history(trades):
 ### Save trade history to file
     util.data_file_writer(trades)
+
+def load_trade_history(filename):
+### Load trade history from file
+    return util.data_file_reader(filename)
 
 def total_trade_count(trades):
 ### How many total trades have you made?
