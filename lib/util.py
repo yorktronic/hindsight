@@ -13,18 +13,14 @@ def dt_to_str(dt):
 	return s
 
 def data_file_writer(trades):
-### writes JSON pricing data to file
+### writes JSON trade data to file
 ### WARNING: overwrites file if it already exists
-    try:
-        trades = json.loads(trades)
-    except ValueError:
-        print('Data does not appear to be valid JSON, unable to write file')
+    now = datetime.datetime.now()
+    filename = "data/poloniex-" + dt_to_str(now) + ".json"
+    f = open(filename, 'w+')
+    json.dump(trades, f)
+    f.close()
+    print('Data written to ' + filename)
 
-    if trades:
-    ### save trade data to file
-        now = datetime.datetime.now()
-        filename = "data/poloniex-" + dt_to_str(now)
-        f = open(filename, 'w+')
-        json.dump(trades, f)
-        f.close()
-        print('Data written to ' + filepath)
+def data_file_reader(trades):
+### reads JSON trade data from file
